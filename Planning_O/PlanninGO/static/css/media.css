@@ -1,0 +1,50 @@
+@media screen and (min-width: 770px){
+	.header{
+		background: url(../Images/header.png) ;
+		padding: 40px 10px 60px 0px;
+		font-family: Comic Sans ms;
+		margin: 0;	
+	}
+	.logo{
+		text-decoration: none;
+		color: #0BDF20;
+		text-shadow: -2px 4px 1px black;
+		font-size: 40px;
+		line-height: 0px;
+	}
+	#form1{
+		padding-top: 20px;
+	}
+}
+@media screen and (max-width: 769px){
+	.header{
+		background: url(../Images/header.png) ;
+		padding: 40px 10px 100px 0px;
+		font-family: Comic Sans ms;
+		margin: 0;	
+	}
+	.logo{
+		text-decoration: none;
+		color: #0BDF20;
+		text-shadow: -2px 4px 1px black;
+		font-size: 40px;
+		line-height: 0px;
+	}
+	#form1{
+		padding-top: 60px;
+	}
+}
+@media screen and (max-width: 602px){
+	.header{
+		background: url(../Images/header.png) ;
+		padding: 40px 10px 190px 0px;
+		font-family: Comic Sans ms;
+		margin: 0;	
+	}
+	.ins{
+	float: right;
+	color: white;
+	margin-top: -25px;
+	margin-bottom: 0px;
+}
+}
