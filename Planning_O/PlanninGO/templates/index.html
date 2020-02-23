@@ -5,10 +5,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Accueil</title>
-  <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../static/css/clean-blog.min.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
-  <link href="../static/css/simple-sidebar.css" rel="stylesheet">
+   {% load static %}
+  <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'css/clean-blog.min.css' %}" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">
 
 </head>
 
@@ -19,11 +20,11 @@
 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
     <li class="nav-item dropdown choix">
       <a class="nav-link dropdown-toggle btn btn-primary" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="float: right;">
-        Que voulez vous
+        Appuyer ici pour vous inscrire ou vous connecter!!
       </a>
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="../templates/connexion.html">Se connecter</a>
-        <a class="dropdown-item" href="../templates/inscription.html">S'inscrire</a>
+        <a class="dropdown-item" href="{% url 'login' %}">Se connecter</a>
+        <a class="dropdown-item" href="{% url 'signin' %}">S'inscrire</a>
       </div>
     </li>
 </ul>
@@ -74,8 +75,8 @@
     </div>
   </footer>
 
-  <script src="../static/jquery/jquery.min.js"></script>
-  <script src="../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 </body>
 
 </html>

@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Inscription</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/newstyle.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/fontaesome/css/all.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<meta charset="utf-8">
+	<title>Inscription</title>
+
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/newstyle.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/fontaesome/css/all.css' %}">
 </head>
 <body>
 <div class="container">
@@ -17,31 +24,36 @@
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Inscription à Big Link</h5>
-				<form method="POST">
+				<form method="GET" role="form" action="{% url 'validate' %}">
+					{% csrf_token %}
 					<div>
 						<label for="nom">Nom</label>
-						<input id="nom" type="text" name="nom"  class="form-control" required="">
+						<input id="nom" type="text" name="nom" placeholder="Entrer votre nom ici" class="form-control" required="">
 					</div><br>
 					<div>
 						<label for="prenom">Prenom</label>
-						<input id="prenom" type="text" name="prenom"  class="form-control" required="">
+						<input id="prenom" type="text" name="prenom" placeholder="Entrer votre prenom ici" class="form-control" required="">
+					</div><br>
+					<div>
+						<label for="username">Nom d'utilisateur</label>
+						<input id="username" type="text" name="username" placeholder="Entrer votre nom d'utilisateur ici" class="form-control" required="">
 					</div><br>
 					<div>
 						<label for="email">Mail</label>
-						<input id="email" type="email" name="email"  class="form-control" required="">
+						<input id="email" type="email" name="email" placeholder="Exemple: exemple@ept.sn" class="form-control" required="">
 					</div><br>
 					<div>
 						<label for="mot_de_passe">Mot de passe</label>
-						<input id="mot_de_passe" type="password" name="mot_de_passe"  class="form-control" required="">
+						<input id="mot_de_passe" type="password" name="password" placeholder="Ne doit pas etre vide" class="form-control" required="">
 					</div><br>
 					<div >
 						<label for="role">Selection votre role</label>
-						<select id="role" name="role"  class="form-control" required="">
+						<select id="role" name="role"  class="form-control" required="" oninput="masquer_div('a_masquer')">
 							<option value="1">Eleve</option>
 							<option value="2">Professeur</option>
 						</select>
-					</div><br><br>
-					<div>
+					</div><br>
+					<div id="a_masquer">
 						<label for="choixNiveau">Selectionnez votre niveau</label>
     					<select name="niveau" id="choixNiveau" class="custom-select mb-3">
       						<option selected value="tc">TC</option>
@@ -58,8 +70,21 @@
       </div>
     </div>
   </div>
-<script type="text/javascript" src="../static/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript" src="../static/jquery/jquery.slim.min.js"></script>
-<script type="text/javascript" src="../static/bootstrap/css/bootstrap.min.js"></script>
+<script>
+	function masquer_div(id)
+	{
+  		if (document.getElementById("role").value == "1")
+  		{
+        	document.getElementById(id).style.display = 'block';
+  		}
+  		else
+  		{
+       		document.getElementById(id).style.display = 'none';
+  		}
+	}
+</script>
+<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'jquery/jquery.slim.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'bootstrap/css/bootstrap.min.js' %}"></script>
 </body>
 </html>

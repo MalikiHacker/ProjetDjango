@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 class Etudiant(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='eleve')
     niveau = models.ForeignKey('Niveau', on_delete=models.CASCADE)
-    STUDENT = 'ST'
+    """STUDENT = 'ST'
     ROLE = [
         (STUDENT, 'ST')
     ]
@@ -12,17 +13,16 @@ class Etudiant(models.Model):
         max_length=2,
         choices=ROLE,
         default=STUDENT,
-    )
-
+    )"""
 
     def __str__(self):
-        return self.user.first_name + '  ' + self.user.last_name + ' ' + self.niveau
+        return self.user.username + ' -- ' + self.niveau.nom_niveau
 
 
 class Professeur(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    contact = models.DecimalField(max_digits=9, decimal_places=0)
-    TEACHER = 'TE'
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='prof')
+
+    """TEACHER = 'TE'
     ROLE = [
         (TEACHER, 'TE')
     ]
@@ -30,10 +30,11 @@ class Professeur(models.Model):
         max_length=2,
         choices=ROLE,
         default=TEACHER,
-    )
+    )"""
 
     def __str__(self):
-        return self.user.first_name + '  ' + self.user.last_name + ' ' + self.contact
+        return self.user.username
+
 
 class Salle(models.Model):
     nom_salle = models.CharField(max_length=30)
@@ -41,22 +42,22 @@ class Salle(models.Model):
     def __str__(self):
         return self.nom_salle
 
+
 class TextBook(models.Model):
-    nom_cahier = models.CharField(max_length=25, default="", editable=False)
-    nom_niveau = models.ForeignKey('Niveau', on_delete=models.CASCADE)
+    nom_cahier = models.CharField(max_length=25, null=False)
     gerant = models.ForeignKey(Professeur, on_delete=models.CASCADE)
 
     def __str__(self):
-        return 'Cahier de texte concernant '+self.nom_cahier+' de la classe'+self.nom_niveau+'gere par '+self.gerant
+        return self.nom_cahier + ' géré par : ' + self.gerant.user.username
+
 
 class Niveau(models.Model):
     nom_niveau = models.CharField(max_length=30, primary_key=True)
-    responsable_pedagogique = models.ForeignKey(Professeur, on_delete=models.CASCADE)
+    responsable_pedagogique = models.ForeignKey(Professeur, on_delete=models.CASCADE, null=False)
     cahier = models.ForeignKey(TextBook, on_delete=models.CASCADE)
 
     def __str__(self):
-        return  self.nom_niveau+' gere par '+self.responsable_pedagogique
-
+        return self.nom_niveau + ' sous la responsabilité de '+ self.responsable_pedagogique.user.username
 
 
 class Cours(models.Model):
@@ -69,7 +70,9 @@ class Cours(models.Model):
     etudiant = models.ManyToManyField(Etudiant, through='Note')
 
     def __str__(self):
-        return self.titre+' de Monsieur '+self.professeur+' avec un duree en heure de '+self.duree
+        return 'Cours de ' + self.titre + ' de Monsieur ' + self.professeur.user.username + ' avec un duree de ' + str(
+            self.duree) + ' h ' + self.salle.nom_salle
+
 
 class Note(models.Model):
     etudiant = models.ForeignKey(Etudiant, on_delete=models.CASCADE)
@@ -77,7 +80,7 @@ class Note(models.Model):
     valeur = models.DecimalField(max_digits=5, decimal_places=2)
 
     def __str__(self):
-        return 'Note de l\'etudiant '+self.etudiant+' concernant le cours '+self.cours+' : '+self.valeur
-
+        return 'Note de l\'etudiant ' + self.etudiant.user.username + ' concernant le cours ' + self.cours.titre + ' : ' + str(
+            self.valeur)
 
 # Create your models here.

@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39cb8f38-254b-4316-afc5-c066691b6273" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/PlanninGO/templates/index_eleve.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PlanninGO/templates/index_prof.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PlanninGO/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanninGO/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanninGO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanninGO/migrations/0002_textbook_nom_cahier.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanninGO/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanninGO/templates/connexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/templates/connexion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanninGO/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanninGO/templates/inscription.html" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/templates/inscription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanninGO/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Planning_O/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Planning_O/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Planning_O/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Planning_O/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,14 +24,24 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1XPV9dh3qUBAnYD9TrdZRUrkhOt" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/projet" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -60,5 +80,8 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>

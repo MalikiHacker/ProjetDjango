@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Connexion</title>
 	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../static/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/newstyle.css">
-	<link rel="stylesheet" type="text/css" href="../static/css/fontaesome/css/all.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<meta charset="utf-8">
+	<title>Connexion</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/newstyle.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/fontaesome/css/all.css' %}">
 </head>
 <body>
 <div class="container">
@@ -19,27 +25,59 @@
             <h5 class="card-title text-center">Connexion à KanGam</h5>
 			<p>Veuillez saisir vos informations pour vous connecter</p>
 
-			<form method="POST">
-				<div >
-					<input type="mail" name="email" required="" placeholder="entrer l'adresse mail" required="" class="form-control">
-				</div>
-				<div><br>
-					<input type="password" name="mot_de_passe" placeholder="entrer le mot de passe" required="" class="form-control">
+			<form method="POST" action="{% url 'authentifier' %}">
+				{% csrf_token %}
+				<div>
+					<label for="username">Nom d'utilisateur</label>
+					<input id="username" type="text" name="username"  class="form-control" required="required">
 				</div><br>
 				<div>
+					<label for="mot_de_passe">Mot de passe</label>
+					<input id="mot_de_passe" type="password" name="password" class="form-control" required="required">
+				</div><br>
+				 <div>
+						<label for="role">Selection votre role</label>
+						<select id="role" name="role"  class="form-control" required="" oninput="masquer_div('a_masquer')">
+							<option value="1">Eleve</option>
+							<option value="2">Professeur</option>
+						</select>
+					 </div><br>
+				<!-- <div id="a_masquer">
 						<label for="choixNiveau">Selectionnez votre niveau</label>
-    					<select name="niveau" id="choixNiveau" class="custom-select mb-3">
+    					<select name="niveau" id="choixNiveau" class="custom-select mb-3" >
       						<option selected value="tc">TC</option>
       						<option value="dic1">Dic 1</option>
      				 		<option value="dic2">Dic 2</option>
       						<option value="dic3">Dic 3</option>
    	 					</select>
-				</div>
+				</div>-->
 				<div><br><br>
 					<input type="submit" name="submit" value="Se connecter" class="btn btn-lg btn-primary btn-block text-uppercase">
 				</div>
 			</form>
+		  </div>
+		</div>
+	  </div>
+	</div>
+</div>
 
-	
+<script>
+	function masquer_div(id)
+	{
+  		if (document.getElementById("role").value == "1")
+  		{
+        	document.getElementById(id).style.display = 'block';
+  		}
+  		else
+  		{
+       		document.getElementById(id).style.display = 'none';
+  		}
+	}
+</script>
+<script type="text/javascript" src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'jquery/jquery.slim.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'bootstrap/css/bootstrap.min.js' %}"></script>
+
+
 </body>
 </html>
