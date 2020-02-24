@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.core.exceptions import ValidationError
-from PlanninGO.models import Etudiant, Professeur, TextBook, Salle, Niveau
+from PlanninGO.models import Etudiant, Professeur, TextBook, Salle, Niveau, Cours
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 
@@ -13,7 +13,7 @@ def save(request):
     if request.GET['role'] == '1':
         newEtudiant = Etudiant()
         newUser = User()
-        newNiveau = Niveau.bjects.get(nom_niveau=request.GET['niveau'])
+        newNiveau = Niveau.objects.get(nom_niveau=request.GET['niveau'])
         newUser.first_name = request.GET['prenom']
         newUser.last_name = request.GET['nom']
         newUser.username = request.GET['username']
@@ -28,7 +28,7 @@ def save(request):
         newEtudiant.niveau = newNiveau
 
         newEtudiant.save()
-        if newUser.email.endswith('@ept.sn') or newUser.password:
+        if newUser.email.endswith('@ept.sn') and newUser.password:
             return render(request, 'connexion.html')
         else:
             raise ValidationError('Format d\'email ou mot de passe invalide !! Veuillez respecter le format recommende')
@@ -47,14 +47,14 @@ def save(request):
         newProfesseur.user = newUser
         newUser.save()
         newProfesseur.save()
-        if newUser.email.endswith('@ept.sn') or newUser.password:
+        if newUser.email.endswith('@ept.sn') and newUser.password:
             return render(request, 'connexion.html')
         else:
             raise ValidationError('Format d\'email ou mot de passe invalide !! Veuillez respecter le format recommende')
             newUser.delete()
             newBook.delete()
             newProfesseur.delete()
-
+            return render(request, 'inscription.html')
 # Create your views here.
 def Inscription(request):
     return render(request, 'inscription.html')
@@ -71,11 +71,12 @@ def loginpage(request):
     user = authenticate(username=username, password=password)
     if user is not None and user.is_active:
         login(request, user)
-        query = User.objects.filter(username=user.username)
+        query = get_object_or_404(User, username=username)
+        etudiants = Etudiant.objects.all()
         if role == '1':
-            return render(request, 'index_eleve.html', {"query": query})
+            return render(request, 'index_eleve.html', {'query': query, 'etudiants': etudiants})
         else:
-            return render(request, 'index_prof.html', {"query": query})
+            return render(request, 'index_prof.html', {'query': query, 'etudiants': etudiants})
     else:
         return render(request, 'connexion.html')
 
@@ -86,3 +87,14 @@ def logoutpage(request):
     except:
         pass
     return render(request, 'index.html')
+
+def show_cours(request):
+    courses = Cours.objects.all()
+
+    return render(request, 'emploi_temps.html', {'courses': courses})
+
+
+def update(request, id):
+    course = get_object_or_404(Cours, pk=id)
+    return render(request, 'edit.html', {'course': course})
+

@@ -67,6 +67,7 @@ class Cours(models.Model):
     salle = models.ForeignKey(Salle, on_delete=models.CASCADE)
     professeur = models.ForeignKey(Professeur, on_delete=models.CASCADE)
     duree = models.IntegerField()
+    niveau = models.ForeignKey(Niveau, on_delete=models.CASCADE, null=True)
     etudiant = models.ManyToManyField(Etudiant, through='Note')
 
     def __str__(self):

@@ -41,20 +41,24 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
         <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
-        <div class="container" style="margin-right: 80px;">
-          <h2>Bienvenue <span style="color: #F46404;">{{ query.username }}</span>
-          {% for query in etudiants.user %}
-            <p>Etudiant en {{ etudiants.niveau }}</p>
-          {% endfor %}
-          </h2>
-        </div>
+
       </nav>
 
       <div class="container-fluid">
-        <h1 class="mt-4">Simple Sidebar</h1>
-        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
-        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
-      </div>
+        <h1 class="mt-4">Emploi du temps</h1>
+        <p>Ci-dessous vous avez l'emploi du temps de la semaine.</p>
+        <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Lundi</th>
+        <th>Mardi</th>
+        <th>Mercredi</th>
+        <th>Jeudi</th>
+        <th>Vendredi</th>
+        <th>Samedi</th>
+      </tr>
+    </thead>
+    <tbody>
     </div>
     <!-- /#page-content-wrapper -->
 

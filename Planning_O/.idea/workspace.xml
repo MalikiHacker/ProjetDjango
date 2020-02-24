@@ -2,20 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39cb8f38-254b-4316-afc5-c066691b6273" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/PlanninGO/templates/index_eleve.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlanninGO/templates/index_prof.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PlanninGO/urls.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PlanninGO/templates/emploi_temps.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PlanninGO/templates/tab_bord.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanninGO/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanninGO/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanninGO/migrations/0002_textbook_nom_cahier.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanninGO/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanninGO/templates/connexion.html" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/templates/connexion.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanninGO/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlanninGO/templates/inscription.html" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/templates/inscription.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanninGO/templates/index_eleve.html" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/templates/index_eleve.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanninGO/templates/index_prof.html" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/templates/index_prof.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PlanninGO/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlanninGO/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/PlanninGO/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Planning_O/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Planning_O/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Planning_O/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Planning_O/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

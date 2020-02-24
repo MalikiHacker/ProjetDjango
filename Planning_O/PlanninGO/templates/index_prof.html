@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
@@ -8,14 +8,13 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>KanGam</title>
-
+  <title>Simple Sidebar - Start Bootstrap Template</title>
+  {% load static %}
   <!-- Bootstrap core CSS -->
-  <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-  
+  <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
   <!-- Custom styles for this template -->
-  <link href="../css/simple-sidebar.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet">
 
 </head>
 
@@ -25,14 +24,14 @@
 
     <!-- Sidebar -->
     <div class="bg-light border-right" id="sidebar-wrapper">
-      <div class="sidebar-heading head logo">KanGam</div>
+      <div class="sidebar-heading">Start Bootstrap </div>
       <div class="list-group list-group-flush">
-        <a href="index.html" class="list-group-item list-group-item-action bg-light">Accueil</a>
-        <a href="design.php" class="list-group-item list-group-item-action bg-light">Programmer un cours</a>
-        <a href="liste_seances.php" class="list-group-item list-group-item-action bg-light">Prochaines Séances</a>
-        <a href="liste_complete.php" class="list-group-item list-group-item-action bg-light">Toutes les Séances</a>
-        <a href="settings.php" class="list-group-item list-group-item-action bg-light">Paramétres</a>
-        <a href="deconnect.php" class="list-group-item list-group-item-action bg-light">Se déconnecter</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Shortcuts</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Overview</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Events</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Profile</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light">Status</a>
       </div>
     </div>
     <!-- /#sidebar-wrapper -->
@@ -41,68 +40,32 @@
     <div id="page-content-wrapper">
 
       <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
-        <button class="btn btn-primary" id="menu-toggle">Menu</button>
-        </button>
-        <div class="name"><h4><center>Bienvenue <?php echo $_SESSION['prenom']." ".$_SESSION['nom'] ; ?></center></h4></div>
+        <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button>
       </nav>
+
+      <div class="container-fluid">
+        <h1 class="mt-4">Simple Sidebar</h1>
+        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+      </div>
     </div>
+    <!-- /#page-content-wrapper -->
+
   </div>
-  <div class='cours'></div>
-  <div class='container-fluid programmer'>
-  <h3 class='mt-4'>Programmer un cours</h3>
-    <form method='POST'>
-      <div class='form-group'>
-        <div class='col-md-10 mb-3'>
-          <label for='libelle'>Intitulé</label>
-          <select class='form-control' aria-describedby='libelle' name='choix'>
-            <option value = 'MERISE'>MERISE</option>
-            <option value = 'UML'>UML</option>
-            <option value = 'Sécurité'>Sécurité</option>
-            <option value = 'ALPROG'>ALPROG</option>
-            <option value = 'DEV WEB'>DEV WEB</option>
-            <option value = 'Intelligence artificielle' selected>Intelligence artificielle</option>
-          </select>
-        </div>
+  <!-- /#wrapper -->
 
-        <div class='col-md-10 mb-3'>
-          <label for='salle'>Lieu</label>
-          <input type='text' name='salle' class='form-control' id='salle' aria-describedby='salle' placeholder='Auditorium'>
-        </div>
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-        <div class='col-md-4 mb-3'>
-          <label>Choisir la date du cours</label>
-          <input type='date' class='form-control' id='heuredeb' name='date' required>
-        </div>
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
 
-        <div class='col-md-4 mb-3'>
-          <label>Choisir l'heure de début du cours (Format : hh:mm:AM/PM)</label>
-          <input type='time' class='form-control' id='heuredeb' name='date_debut' required>
-        </div>
-            
-        <div class='col-md-4 mb-3'>
-          <label for='heuredeb'>Choisir l'heure de fin du cours(Format : hh:mm:AM/PM)</label>
-          <input type='time' class='form-control' id='heurefin' name='date_fin' required>
-        </div>
-
-        <div class='col-md-4 mb-3'>
-          <div class='form-check'>
-            <input type='checkbox' class='form-check-input' id='joindre' checked>
-            <label class='form-check-label' for='joindre'>Joindre un fichier</label>
-          </div>
-          <div class='form-group' id='fichier'>
-            <label for='file'>Titre du fichier</label>
-            <input type='text' name='titre' class='form-control col-md-6 mb-3' id='titre' aria-describedby='titre' placeholder='Enter le titre'>
-
-            <label for='file'>Lien vers le fichier</label>
-            <input type='text' name='lien' class='form-control col-md-6 mb-3' id='lien' aria-describedby='lien' placeholder='Donner le lien'>
-          </div>
-        </div>
-
-        <div class='col-md-4 mb-3'>
-          <input type='submit' class='btn btn-primary' name='submit' value='Soumettre'/>
-        </div>
-   </div>
-   </form>
- </div>
 </body>
+
 </html>
